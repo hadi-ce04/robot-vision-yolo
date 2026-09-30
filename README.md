@@ -1,46 +1,74 @@
-# Robot Vision System using YOLO
+# 🤖 Robot Vision System
 
-A real-time computer vision system engineered for robotic perception, utilizing the **YOLO (You Only Look Once)** deep learning framework and **OpenCV**. This project enables a robot to interpret its environment by detecting and labeling everyday household and office objects dynamically via a live camera stream.
+> **Giving a robot eyes. 👁️**
 
----
+A real-time computer vision system built with **Python, YOLO and OpenCV** that allows a camera-equipped system to detect and identify objects in its environment.
 
-## 🚀 Features
-* **Real-Time Object Detection:** Low-latency inference ideal for edge computing and robotic platforms.
-* **Stream-Optimized Inference:** Utilizes generator-based streaming (`stream=True`) to maintain minimal memory overhead and maximize FPS.
-* **Auto-Annotated Visualization:** Dynamically overlays bounding boxes, class labels, and confidence scores onto the live video feed.
+The project explores a fundamental problem in robotics:
 
-## 🛠️ Tech Stack & Skills
-* **Language:** Python
-* **Libraries:** OpenCV (`opencv-python`), Ultralytics (`ultralytics`)
-* **DevOps / Tools:** Git, GitHub, Virtual Environments (`venv`)
+**How can a machine understand what it is looking at?**
 
 ---
 
-## 🔧 Installation & Setup
+<div align="center">
 
-Follow these steps to get the vision system running locally on your machine:
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![YOLO](https://img.shields.io/badge/YOLO-Ultralytics-111111?style=for-the-badge)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-### 1. Clone the Repository
-```bash
-git clone [https://github.com/hadi-ce04/robot-vision-yolo.git](https://github.com/hadi-ce04/robot-vision-yolo.git)
-cd robot-vision-yolo
+**Real-time detection · Computer Vision · Robotic Perception**
 
-# Create the environment
-python -m venv venv
+</div>
 
-# Activate the environment
-# On Windows:
-venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
+---
 
-pip install -r requirements.txt
+## 🎥 See It In Action
 
-python vision_robot.py
+<!-- Replace this with a GIF/video once you have one -->
 
-🧠 How It Works
-Frame Capture: OpenCV hooks into the default system hardware camera, capturing live video frames at a hardware-defined frame rate.
+<p align="center">
+  <img src="assets/demo.gif" width="800" alt="Robot Vision System Demo">
+</p>
 
-Deep Learning Processing: Each raw frame matrix is sent directly into a pre-trained convolutional neural network (YOLO), which extracts features to predict object bounding box coordinates and classification probabilities.
+> 📹 **Coming soon:** A short demonstration of the system detecting objects through a live camera feed.
 
-Rendering Layer: Bounding boxes and confidence percentages are rendered back onto the frame vector before being outputted onto a dedicated display window.
+---
+
+## 🧠 What Does It Actually Do?
+
+The system takes a **live camera feed**, processes each frame through a pre-trained **YOLO object detection model**, and identifies objects in the environment.
+
+For every detected object, the system can display:
+
+- 🎯 Bounding box
+- 🏷️ Object class
+- 📊 Confidence score
+- ⚡ Real-time visual feedback
+
+In simple terms:
+
+
+        📷 CAMERA
+            │
+            ▼
+    ┌─────────────────┐
+    │   OpenCV        │
+    │  Frame Capture  │
+    └────────┬────────┘
+             │
+             ▼
+    ┌─────────────────┐
+    │      YOLO       │
+    │ Object Detection│
+    └────────┬────────┘
+             │
+             ▼
+    ┌─────────────────┐
+    │   Detection     │
+    │  + Confidence   │
+    │  + Bounding Box │
+    └────────┬────────┘
+             │
+             ▼
+       🖥️ LIVE OUTPUT
